@@ -17,7 +17,9 @@ const ShopProvider = props => {
   const [test, setTest] = useState('test');
 
   return (
-    <ShopContext.Provider value={{ products, product, checkout, isCartOpen }}>
+    <ShopContext.Provider
+      value={{ products, product, checkout, isCartOpen, test }}
+    >
       {props.children}
     </ShopContext.Provider>
   );

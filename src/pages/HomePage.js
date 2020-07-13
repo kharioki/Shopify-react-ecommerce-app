@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ShopContext } from '../context/shopContext';
 
 export const HomePage = () => {
-  return <div>Home</div>;
+  const { test } = useContext(ShopContext);
+  return <div>{test}</div>;
 };

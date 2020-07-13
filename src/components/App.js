@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { HomePage } from '../pages/HomePage';
 import ProductPage from '../pages/ProductPage';
+import ShopProvider from '../context/shopContext';
 
 const debug =
   process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
@@ -14,18 +15,20 @@ const engine = new Styletron();
 
 function App() {
   return (
-    <StyletronProvider value={engine} debug={debug} debugAfterHydration>
-      <Router>
-        <Switch>
-          <Route path="/product">
-            <ProductPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </Router>
-    </StyletronProvider>
+    <ShopProvider>
+      <StyletronProvider value={engine} debug={debug} debugAfterHydration>
+        <Router>
+          <Switch>
+            <Route path="/product">
+              <ProductPage />
+            </Route>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </Router>
+      </StyletronProvider>
+    </ShopProvider>
   );
 }
 
