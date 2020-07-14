@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { ShopContext } from '../context/shopContext';
 
 const ProductPage = () => {
-  return <div>Product</div>;
+  let { id } = useParams();
+
+  const { fetchProductWithId, product } = useContext(ShopContext);
+
+  useEffect(() => {
+    fetchProductWithId(id);
+  }, [fetchProductWithId]);
+
+  return (
+    <div>
+      Product
+      {id}
+    </div>
+  );
 };
 
 export default ProductPage;
