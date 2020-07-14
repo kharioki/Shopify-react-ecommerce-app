@@ -18,18 +18,41 @@ const ShopProvider = props => {
 
   const createCheckout = async () => {
     const checkout = await client.checkout.create();
-    console.log(checkout);
+    setCheckout(checkout);
   };
 
-  const addItemToCart = async (variantId, quantity) => {};
+  const addItemToCheckout = async (variantId, quantity) => {
+    const lineItemsToAdd = [
+      {
+        variantId,
+        quantity: parseInt(quantity, 10)
+      }
+    ];
 
-  const fetchAllProducts = async () => {};
+    const _checkout = await client.checkout.addLineItems(
+      checkout.id,
+      lineItemsToAdd
+    );
+    setCheckout(_checkout);
+  };
 
-  const fetchProductWithId = async id => {};
+  const fetchAllProducts = async () => {
+    const products = await client.product.fetchAll();
+    setProducts(products);
+  };
 
-  const closeCart = () => {};
+  const fetchProductWithId = async id => {
+    const product = await client.product.fetch(id);
+    setProduct(product);
+  };
 
-  const openCart = () => {};
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+  const openCart = () => {
+    setIsCartOpen(true);
+  };
 
   useEffect(() => {
     createCheckout();
@@ -37,7 +60,18 @@ const ShopProvider = props => {
 
   return (
     <ShopContext.Provider
-      value={{ products, product, checkout, isCartOpen, test }}
+      value={{
+        products,
+        product,
+        checkout,
+        isCartOpen,
+        test,
+        fetchAllProducts,
+        fetchProductWithId,
+        addItemToCheckout,
+        closeCart,
+        openCart
+      }}
     >
       {props.children}
     </ShopContext.Provider>
