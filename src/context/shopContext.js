@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import Client from 'shopify-buy';
 
 export const ShopContext = createContext();
@@ -6,7 +6,7 @@ export const ShopContext = createContext();
 // Initializing a client to return content in the store's primary language
 const client = Client.buildClient({
   domain: 'plugdd.myshopify.com',
-  storefrontAccessToken: 'cafb605cf1da325ae8a590ff01a3104d'
+  storefrontAccessToken: '73bf4bf50ba473a4ce094ec8f57c39db'
 });
 
 const ShopProvider = props => {
@@ -15,6 +15,25 @@ const ShopProvider = props => {
   const [checkout, setCheckout] = useState({});
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [test, setTest] = useState('test');
+
+  const createCheckout = async () => {
+    const checkout = await client.checkout.create();
+    console.log(checkout);
+  };
+
+  const addItemToCart = async (variantId, quantity) => {};
+
+  const fetchAllProducts = async () => {};
+
+  const fetchProductWithId = async id => {};
+
+  const closeCart = () => {};
+
+  const openCart = () => {};
+
+  useEffect(() => {
+    createCheckout();
+  }, []);
 
   return (
     <ShopContext.Provider
