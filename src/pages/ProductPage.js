@@ -30,6 +30,7 @@ const ProductPage = () => {
             h="40rem"
           />
         </Col>
+
         <Col>
           <Text
             tag="h1"
