@@ -7,9 +7,12 @@ import { ShopContext } from '../context/shopContext';
 const ProductPage = () => {
   let { id } = useParams();
 
-  const { fetchProductWithId, product, addItemToCheckout } = useContext(
-    ShopContext
-  );
+  const {
+    fetchProductWithId,
+    product,
+    addItemToCheckout,
+    openCart
+  } = useContext(ShopContext);
 
   useEffect(() => {
     fetchProductWithId(id);
@@ -56,7 +59,10 @@ const ProductPage = () => {
             shadow="3"
             bg="black500"
             m={{ y: '2rem' }}
-            onClick={() => addItemToCheckout(product.variants[0].id, 1)}
+            onClick={() => {
+              addItemToCheckout(product.variants[0].id, 1);
+              openCart();
+            }}
           >
             Add To Cart
           </Button>

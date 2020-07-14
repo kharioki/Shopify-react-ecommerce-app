@@ -34,7 +34,7 @@ export const HomePage = () => {
                 />
                 <Text
                   tag="h1"
-                  textWeight="300"
+                  textWeight="400"
                   textSize="subheader"
                   textDecor="none"
                   textColor="black500"
@@ -43,7 +43,7 @@ export const HomePage = () => {
                 </Text>
                 <Text
                   tag="h2"
-                  textWeight="300"
+                  textWeight="400"
                   textSize="body"
                   textDecor="none"
                   textColor="gray500"

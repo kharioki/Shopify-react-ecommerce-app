@@ -14,7 +14,6 @@ const ShopProvider = props => {
   const [product, setProduct] = useState({});
   const [checkout, setCheckout] = useState({});
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [test, setTest] = useState('test');
 
   const createCheckout = async () => {
     const checkout = await client.checkout.create();
@@ -65,7 +64,6 @@ const ShopProvider = props => {
         product,
         checkout,
         isCartOpen,
-        test,
         fetchAllProducts,
         fetchProductWithId,
         addItemToCheckout,

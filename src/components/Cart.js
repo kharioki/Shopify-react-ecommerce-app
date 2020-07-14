@@ -25,7 +25,7 @@ const Cart = () => {
         hoverTextColor="black700"
         transition="0.3s"
       >
-        Cart Is Empty
+        Your bag Is Empty
       </Text>
     );
 
@@ -46,7 +46,7 @@ const Cart = () => {
               hoverTextColor="black700"
               transition="0.3s"
             >
-              Cart
+              Bag
             </Text>
             <Anchor onClick={() => closeCart()}>
               <Icon name="Cross" color="black500" />
@@ -70,7 +70,7 @@ const Cart = () => {
                     hoverTextColor="black700"
                     transition="0.3s"
                   >
-                    Cart Is Empty
+                    Your bag Is Empty
                   </Text>
                 </Col>
               </Row>
